@@ -1,0 +1,4 @@
+com/insider/base/BaseTest.class
+com/insider/tests/InsiderTests.class
+com/insider/utils/CustomReportListener.class
+com/insider/utils/TestListener.class

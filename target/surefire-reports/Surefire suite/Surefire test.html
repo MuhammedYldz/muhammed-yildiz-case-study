@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>TestNG:  Surefire test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Surefire test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sat Jan 17 00:11:11 TRT 2026</td>
+</tr>
+<tr><td>Total time:</td><td>21 seconds (21755 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.insider.tests.InsiderTests.testInsiderQAJobs()'><b>testInsiderQAJobs</b><br>Test class: com.insider.tests.InsiderTests<br>Test method: Insider Career Page QA Job Verification<br/>
+<a href="#Output-2144282958" onClick='toggleBox("Output-2144282958", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2144282958" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2144282958">
+Clicking element: By.xpath: //a[normalize-space()='See all QA jobs']<br><br/>
+Selecting 'Istanbul, Turkiye' from: By.id: filter-by-location<br><br/>
+Selecting 'Quality Assurance' from: By.id: filter-by-department<br><br/>
+Clicking element: [[[[ChromeDriver: chrome on mac (bbe54cb020dbf9e417f400065bc5d482)] -> class name: position-list-item]] -> css selector: a.btn.btn-navy]<br><br/>
+Clicking element: [[[[ChromeDriver: chrome on mac (bbe54cb020dbf9e417f400065bc5d482)] -> class name: position-list-item]] -> css selector: a.btn.btn-navy]<br><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>com.insider.tests.InsiderTests@4b45a2f5</td></tr>
+</table><p>
+</body>
+</html>

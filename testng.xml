@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Insider Test Suite" parallel="tests" thread-count="2">
+    <listeners>
+        <listener class-name="com.insider.utils.TestListener"/>
+        <listener class-name="com.insider.utils.CustomReportListener"/>
+    </listeners>
+
+    <test name="Insider QA Job Tests">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.insider.tests.InsiderTests"/>
+        </classes>
+    </test>
+</suite>
