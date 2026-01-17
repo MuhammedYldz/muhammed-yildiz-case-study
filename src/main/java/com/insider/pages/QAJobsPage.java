@@ -18,18 +18,20 @@ public class QAJobsPage extends BasePage {
 
     private final By locationFilter = By.id("filter-by-location");
     private final By departmentFilter = By.id("filter-by-department");
-    private final By jobListContainer = By.xpath("//div[@id='jobs-list']/div[1]");
+    private final By jobListContainer = By.id("jobs-list");
     private final By jobItem = By.className("position-list-item");
     
     private final By positionTitle = By.className("position-title");
     private final By positionDepartment = By.className("position-department");
     private final By positionLocation = By.className("position-location");
     
-    private final By viewRoleBtn = By.cssSelector("a.btn.btn-navy");
+    // Using a more robust selector that doesn't rely on the specific color class (btn-navy)
+    private final By viewRoleBtn = By.cssSelector("a.btn");
 
     // Lever Page Selectors
-    private final By leverLocation = By.xpath("//div[@class='sort-by-time posting-category medium-category-label width-full capitalize-labels location']");
-    private final By leverDepartment = By.xpath("//div[@class='sort-by-team posting-category medium-category-label capitalize-labels department']");
+    // Optimized CSS selectors using multiple classes for robustness instead of long exact class strings
+    private final By leverLocation = By.cssSelector(".posting-category.location");
+    private final By leverDepartment = By.cssSelector(".posting-category.department");
 
     public QAJobsPage(WebDriver driver) {
         super(driver);
