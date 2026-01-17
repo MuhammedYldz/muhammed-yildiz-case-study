@@ -1,1 +1,51 @@
 /apache-maven-3.9.6
+apache-maven-3.9.6-bin.tar.gz
+
+# Maven
+target/
+*.log
+.mvn/wrapper/maven-wrapper.properties
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
+
+# VS Code
+.vscode/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# Test Output
+test-output/
+allure-results/
+screenshots/
+reports/
+
+# Drivers
+drivers/
+selenium_logs/
+target/classes/com/insider/pages/QAJobsPage.class
+target/surefire-reports/com.insider.tests.InsiderTests.txt
+target/surefire-reports/emailable-report.html
+target/surefire-reports/index.html
+target/surefire-reports/TEST-com.insider.tests.InsiderTests.xml
+target/surefire-reports/testng-results.xml
+target/surefire-reports/junitreports/TEST-com.insider.tests.InsiderTests.xml
+target/surefire-reports/old/Surefire suite/methods-alphabetical.html
+target/surefire-reports/old/Surefire suite/methods.html
+target/surefire-reports/old/Surefire suite/reporter-output.html
+target/surefire-reports/Surefire suite/Surefire test.html
+target/surefire-reports/Surefire suite/Surefire test.xml
+target/test-classes/com/insider/utils/CustomReportListener.class
+target/test-classes/com/insider/utils/TestListener.class

@@ -130,12 +130,11 @@ public class QAJobsPage extends BasePage {
                         if (titleText.isEmpty()) titleText = titleEl.getAttribute("textContent").trim();
 
                         // Validation criteria matches verifySingleJobDetail logic
-                        boolean isLocationMatch = locText.contains("Istanbul") || locText.contains("Turkey") || locText.contains("Turkiye");
-                        boolean isTurkishSpeaker = titleText.contains("Turkish Speaker");
-                        boolean isRemote = locText.contains("Remote");
+                        boolean isLocationMatch = locText.contains("Istanbul, Turkiye");
+                        boolean isDepartmentMatch = titleText.contains("Quality Assurance") || titleText.contains("QA");
 
                         // If any job in the list doesn't match
-                        if (!isLocationMatch && !isTurkishSpeaker && !isRemote) {
+                        if (!isLocationMatch || !isDepartmentMatch) {
                             return false;
                         }
                     } catch (Exception e) {
@@ -189,13 +188,11 @@ public class QAJobsPage extends BasePage {
                 Assert.assertTrue(department.contains("Quality Assurance") || department.contains("QA"), 
                         "Department mismatch. Actual: " + department);
                         
-                // Allow "Turkish Speaker" jobs even if location is not Istanbul (e.g. Remote/Relocation)
-                boolean isLocationMatch = location.contains("Istanbul") || location.contains("Turkey") || location.contains("Turkiye");
-                boolean isTurkishSpeaker = title.contains("Turkish Speaker");
-                boolean isRemote = location.contains("Remote");
+                // Strict check for "Istanbul, Turkiye"
+                boolean isLocationMatch = location.contains("Istanbul, Turkiye");
                 
-                Assert.assertTrue(isLocationMatch || isTurkishSpeaker || isRemote, 
-                        "Location mismatch. Actual: " + location + " (and title does not indicate Turkish Speaker)");
+                Assert.assertTrue(isLocationMatch, 
+                        "Location mismatch. Actual: " + location + ". Expected to contain 'Istanbul, Turkiye'");
                 
                 return; // Success, exit loop
             } catch (StaleElementReferenceException e) {
@@ -260,7 +257,7 @@ public class QAJobsPage extends BasePage {
                     // This ensures we don't click a wrong job if filters reset
                     WebElement locEl = currentJob.findElement(positionLocation);
                     String locText = getElementText(locEl);
-                    if (!locText.contains("Istanbul") && !locText.contains("Turkey") && !locText.contains("Turkiye") && !locText.contains("Remote")) {
+                    if (!locText.contains("Istanbul, Turkiye")) {
                          logger.warn("Filter reset detected! Found job with location: {}. Re-applying filters to continue verification.", locText);
                          // Re-apply filters
                          filterJobs("Istanbul, Turkiye", "Quality Assurance");
