@@ -37,7 +37,7 @@ public class TestListener implements ITestListener {
             WebDriver driver = ((BaseTest) testInstance).getDriver();
             if (driver != null) {
                 logger.info("Taking screenshot for failed test...");
-                // saveScreenshot(driver); // Removed Allure dependency
+                
                 
                 // We can attach screenshot path to Reporter if needed, but keeping it simple for now
                 // as native TestNG doesn't embed images easily without HTML modification.
@@ -45,7 +45,7 @@ public class TestListener implements ITestListener {
         }
     }
 
-    // @Attachment(value = "Page Screenshot", type = "image/png") // Removed Allure annotation
+    
     public byte[] saveScreenshot(WebDriver driver) {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }

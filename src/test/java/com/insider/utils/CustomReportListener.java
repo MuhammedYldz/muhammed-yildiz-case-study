@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
+// Found in the internet and modified to fit the project
 public class CustomReportListener implements IReporter {
 
     @Override
