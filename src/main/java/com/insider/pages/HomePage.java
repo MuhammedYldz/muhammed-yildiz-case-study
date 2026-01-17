@@ -7,7 +7,7 @@ import org.testng.Assert;
 public class HomePage extends BasePage {
 
     
-    // Locators updated based on the correct Home Page screenshot
+    
     private final By body = By.tagName("body");
     private final By header = By.id("navigation");
     private final By main = By.cssSelector("main.flexible-layout");
