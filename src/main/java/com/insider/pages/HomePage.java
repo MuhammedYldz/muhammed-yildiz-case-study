@@ -43,7 +43,7 @@ public class HomePage extends BasePage {
     }
 
     public void verifyMainBlocksLoaded() {
-        // Checking visibility of critical elements as requested
+        // Checking visibility of critical elements 
         Assert.assertTrue(isDisplayed(body), "Body is not visible");
         Assert.assertTrue(isDisplayed(header), "Header (navigation) is not visible");
         Assert.assertTrue(isDisplayed(main), "Main content area is not visible");
