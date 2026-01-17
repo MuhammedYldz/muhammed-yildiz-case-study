@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.insider.tests.InsiderTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.08 s -- in com.insider.tests.InsiderTests
