@@ -58,7 +58,7 @@ public class QAJobsPage extends BasePage {
             longWait.until(d -> d.findElements(jobItem).size() > 0);
             logger.info("Initial job list loaded successfully.");
         } catch (org.openqa.selenium.TimeoutException e) {
-            // If it times out, we fail gracefully with a clear message
+            // If it times out, fail 
             Assert.fail("Timed out waiting for initial job list to load. The API might be slow or down.");
         }
     }
@@ -66,7 +66,7 @@ public class QAJobsPage extends BasePage {
     public void filterJobs(String location, String department) {
         logger.info("Filtering jobs by Location: {} and Department: {}", location, department);
         
-        // Wait until the location filter is populated with the desired location
+        // Wait until the location filter is populated
         wait.until(d -> {
             Select s = new Select(d.findElement(locationFilter));
             for (WebElement opt : s.getOptions()) {
@@ -82,7 +82,7 @@ public class QAJobsPage extends BasePage {
         selectByVisibleText(departmentFilter, department);
         
         // Wait for the job list to update
-        // Best Practice: Wait for the old job items to become stale (removed from DOM)
+        // Wait for the old job items to become stale (removed from DOM)
         // This confirms that the filter application triggered a re-render.
         if (!currentJobs.isEmpty()) {
             logger.info("Waiting for job list to update (staleness check)...");
@@ -112,7 +112,7 @@ public class QAJobsPage extends BasePage {
     public void verifyJobDetails() {
         // Wait for job list to update and contain elements that match the filter
         // We check ALL jobs to ensure the filter has been applied to the entire list, 
-        // preventing race conditions where the first job matches but others don't.
+        
         try {
             wait.until(d -> {
                 List<WebElement> jobs = d.findElements(jobItem);
@@ -134,12 +134,12 @@ public class QAJobsPage extends BasePage {
                         boolean isTurkishSpeaker = titleText.contains("Turkish Speaker");
                         boolean isRemote = locText.contains("Remote");
 
-                        // If any job in the list doesn't match, the list is not fully filtered yet
+                        // If any job in the list doesn't match
                         if (!isLocationMatch && !isTurkishSpeaker && !isRemote) {
                             return false;
                         }
                     } catch (Exception e) {
-                        return false; // Element might be stale, keep waiting
+                        return false; 
                     }
                 }
                 return true; // All visible jobs match the criteria
@@ -229,7 +229,7 @@ public class QAJobsPage extends BasePage {
     public void clickAllViewRoleButtonsAndVerify() {
         wait.until(d -> d.findElements(jobItem).size() > 0);
         
-        // Get initial count, but we will re-query inside the loop
+        // Get initial count, but will re-query inside the loop
         int jobCount = findAll(jobItem).size();
         
         if (jobCount == 0) {
@@ -245,7 +245,7 @@ public class QAJobsPage extends BasePage {
                 // Re-find elements to avoid StaleElementReferenceException
                 List<WebElement> jobs = findAll(jobItem);
                 
-                // Safety check: if the list size changed, we might go out of bounds or miss items
+                // if the list size changed,  might go out of bounds or miss items
                 if (i >= jobs.size()) {
                     logger.warn("Job list size changed during iteration. Stopping verification.");
                     break;
@@ -309,8 +309,7 @@ public class QAJobsPage extends BasePage {
                         
                 } catch (Exception e) {
                      logger.error("Failed to verify Location/Department on Lever page: {}", e.getMessage());
-                     // Depending on requirements, we might want to fail the test here or just log it. 
-                     // Given the user asked to check it, we should fail if it's not correct.
+                     
                      Assert.fail("Failed to verify Location/Department on Lever page: " + e.getMessage());
                 }
 
@@ -328,6 +327,6 @@ public class QAJobsPage extends BasePage {
     }
     
     private void verifyViewRoleUrl(int index, String url, String originalWindow) {
-        // Deprecated method, logic moved to clickAllViewRoleButtonsAndVerify
+        //  method, logic moved to clickAllViewRoleButtonsAndVerify
     }
 }
